@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mi Creador de Libros</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{margin:0;font-family:Arial,sans-serif;background:#f5f2ff;color:#29243d}
+
+header{background:linear-gradient(120deg,#594ce0,#b18aff);color:white;padding:30px 20px;text-align:center}
+
+header h1{font-size:29px;margin:8px}
+
+main{max-width:750px;margin:20px auto;padding:0 15px}
+
+.card{background:white;border-radius:18px;padding:20px;margin-bottom:18px;box-shadow:0 5px 20px #3332}
+
+h2{color:#594ce0}
+
+label{display:block;font-weight:bold;margin:14px 0 6px}
+
+input,select,textarea{width:100%;padding:13px;border:1px solid #ddd8ed;border-radius:10px;font-size:16px}
+
+textarea{min-height:90px}
+
+button{background:#6657e8;color:white;border:0;padding:14px 18px;border-radius:11px;font-weight:bold;margin-top:15px;font-size:15px}
+
+#portada{text-align:center;background:#fff9ed;padding:25px;border-radius:12px}
+
+.dino{font-size:65px}
+
+small{color:#777}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>📚 Mi Creador de Libros</h1>
+
+<p>¡Diseña tu próximo libro para colorear!</p>
+
+</header>
+
+<main>
+
+<section class="card">
+
+<h2>1. Datos del libro</h2>
+
+<label>Título del libro</label>
+
+<input id="titulo" value="Mi gran libro para colorear">
+
+<label>Tema</label>
+
+<input id="tema" value="Aventuras de dinosaurios">
+
+<label>Edad recomendada</label>
+
+<select id="edad">
+
+<option>3 a 5 años</option>
+
+<option selected>4 a 8 años</option>
+
+<option>6 a 9 años</option>
+
+<option>8 a 12 años</option>
+
+</select>
+
+<label>Número de páginas</label>
+
+<input id="paginas" type="number" value="40">
+
+<label>Descripción de las ilustraciones</label>
+
+<textarea id="descripcion">Dibujos grandes, líneas negras gruesas, sin sombras ni grises.</textarea>
+
+<button onclick="actualizar()">Actualizar portada</button>
+
+</section>
+
+<section class="card">
+
+<h2>2. Vista previa</h2>
+
+<div id="portada">
+
+<small>LIBRO PARA COLOREAR</small>
+
+<div class="dino">🦕</div>
+
+<h2 id="ptitulo">Mi gran libro para colorear</h2>
+
+<p id="ptema">Aventuras de dinosaurios</p>
+
+<small id="pdatos">Edad: 4 a 8 años · 40 páginas</small>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>3. Próximos pasos</h2>
+
+<p>🎨 Crear las ilustraciones.</p>
+
+<p>📖 Organizar las páginas interiores.</p>
+
+<p>✨ Diseñar una portada atractiva.</p>
+
+<p>📦 Preparar el libro para publicar.</p>
+
+</section>
+
+</main>
+
+<script>
+
+function actualizar(){
+
+let t=document.getElementById('titulo').value;
+
+let tema=document.getElementById('tema').value;
+
+let edad=document.getElementById('edad').value;
+
+let paginas=document.getElementById('paginas').value;
+
+document.getElementById('ptitulo').textContent=t;
+
+document.getElementById('ptema').textContent=tema;
+
+document.getElementById('pdatos').textContent='Edad: '+edad+' · '+paginas+' páginas';
+
+}
+
+</script>
+
+</body>
+
+</html>
