@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -50,7 +52,7 @@ small{color:#777}
 
 <h1>📚 Mi Creador de Libros</h1>
 
-<p>¡Diseña tu próximo libro para colorear!</p>
+<p id="subtitulo">¡Diseña tu próximo libro para colorear!</p>
 
 </header>
 
@@ -58,17 +60,27 @@ small{color:#777}
 
 <section class="card">
 
-<h2>1. Datos del libro</h2>
+<h2 id="datosTitulo">1. Datos del libro</h2>
 
-<label>Título del libro</label>
+<label id="idiomaLabel" for="idioma">Idioma del libro</label>
+
+<select id="idioma" onchange="cambiarIdioma()">
+
+<option value="es">Español</option>
+
+<option value="en">English</option>
+
+</select>
+
+<label id="tituloLabel" for="titulo">Título del libro</label>
 
 <input id="titulo" value="Mi gran libro para colorear">
 
-<label>Tema</label>
+<label id="temaLabel" for="tema">Tema</label>
 
 <input id="tema" value="Aventuras de dinosaurios">
 
-<label>Edad recomendada</label>
+<label id="edadLabel" for="edad">Edad recomendada</label>
 
 <select id="edad">
 
@@ -82,25 +94,25 @@ small{color:#777}
 
 </select>
 
-<label>Número de páginas</label>
+<label id="paginasLabel" for="paginas">Número de páginas</label>
 
 <input id="paginas" type="number" value="40">
 
-<label>Descripción de las ilustraciones</label>
+<label id="descripcionLabel" for="descripcion">Descripción de las ilustraciones</label>
 
 <textarea id="descripcion">Dibujos grandes, líneas negras gruesas, sin sombras ni grises.</textarea>
 
-<button onclick="actualizar()">Actualizar portada</button>
+<button id="actualizarBtn" onclick="actualizar()">Actualizar portada</button>
 
 </section>
 
 <section class="card">
 
-<h2>2. Vista previa</h2>
+<h2 id="vistaTitulo">2. Vista previa</h2>
 
 <div id="portada">
 
-<small>LIBRO PARA COLOREAR</small>
+<small id="tipoLibro">LIBRO PARA COLOREAR</small>
 
 <div class="dino">🦕</div>
 
@@ -116,15 +128,15 @@ small{color:#777}
 
 <section class="card">
 
-<h2>3. Próximos pasos</h2>
+<h2 id="pasosTitulo">3. Próximos pasos</h2>
 
-<p>🎨 Crear las ilustraciones.</p>
+<p id="paso1">🎨 Crear las ilustraciones.</p>
 
-<p>📖 Organizar las páginas interiores.</p>
+<p id="paso2">📖 Organizar las páginas interiores.</p>
 
-<p>✨ Diseñar una portada atractiva.</p>
+<p id="paso3">✨ Diseñar una portada atractiva.</p>
 
-<p>📦 Preparar el libro para publicar.</p>
+<p id="paso4">📦 Preparar el libro para publicar.</p>
 
 </section>
 
@@ -132,21 +144,133 @@ small{color:#777}
 
 <script>
 
+function cambiarIdioma(){
+
+const ingles = document.getElementById('idioma').value === 'en';
+
+document.documentElement.lang = ingles ? 'en' : 'es';
+
+document.getElementById('subtitulo').textContent = ingles
+
+? 'Design your next coloring book!'
+
+: '¡Diseña tu próximo libro para colorear!';
+
+document.getElementById('datosTitulo').textContent = ingles
+
+? '1. Book details'
+
+: '1. Datos del libro';
+
+document.getElementById('idiomaLabel').textContent = ingles
+
+? 'Book language'
+
+: 'Idioma del libro';
+
+document.getElementById('tituloLabel').textContent = ingles
+
+? 'Book title'
+
+: 'Título del libro';
+
+document.getElementById('temaLabel').textContent = ingles
+
+? 'Theme'
+
+: 'Tema';
+
+document.getElementById('edadLabel').textContent = ingles
+
+? 'Recommended age'
+
+: 'Edad recomendada';
+
+document.getElementById('paginasLabel').textContent = ingles
+
+? 'Number of pages'
+
+: 'Número de páginas';
+
+document.getElementById('descripcionLabel').textContent = ingles
+
+? 'Illustration description'
+
+: 'Descripción de las ilustraciones';
+
+document.getElementById('actualizarBtn').textContent = ingles
+
+? 'Update cover'
+
+: 'Actualizar portada';
+
+document.getElementById('vistaTitulo').textContent = ingles
+
+? '2. Preview'
+
+: '2. Vista previa';
+
+document.getElementById('tipoLibro').textContent = ingles
+
+? 'COLORING BOOK'
+
+: 'LIBRO PARA COLOREAR';
+
+document.getElementById('pasosTitulo').textContent = ingles
+
+? '3. Next steps'
+
+: '3. Próximos pasos';
+
+document.getElementById('paso1').textContent = ingles
+
+? '🎨 Create the illustrations.'
+
+: '🎨 Crear las ilustraciones.';
+
+document.getElementById('paso2').textContent = ingles
+
+? '📖 Organize the interior pages.'
+
+: '📖 Organizar las páginas interiores.';
+
+document.getElementById('paso3').textContent = ingles
+
+? '✨ Design an attractive cover.'
+
+: '✨ Diseñar una portada atractiva.';
+
+document.getElementById('paso4').textContent = ingles
+
+? '📦 Prepare the book for publishing.'
+
+: '📦 Preparar el libro para publicar.';
+
+actualizar();
+
+}
+
 function actualizar(){
 
-let t=document.getElementById('titulo').value;
+const ingles = document.getElementById('idioma').value === 'en';
 
-let tema=document.getElementById('tema').value;
+const t = document.getElementById('titulo').value;
 
-let edad=document.getElementById('edad').value;
+const tema = document.getElementById('tema').value;
 
-let paginas=document.getElementById('paginas').value;
+const edad = document.getElementById('edad').value;
 
-document.getElementById('ptitulo').textContent=t;
+const paginas = document.getElementById('paginas').value;
 
-document.getElementById('ptema').textContent=tema;
+document.getElementById('ptitulo').textContent = t;
 
-document.getElementById('pdatos').textContent='Edad: '+edad+' · '+paginas+' páginas';
+document.getElementById('ptema').textContent = tema;
+
+document.getElementById('pdatos').textContent = ingles
+
+? 'Age: ' + edad + ' · ' + paginas + ' pages'
+
+: 'Edad: ' + edad + ' · ' + paginas + ' páginas';
 
 }
 
